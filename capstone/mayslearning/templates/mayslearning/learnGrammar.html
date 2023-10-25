@@ -1,0 +1,30 @@
+{% extends "mayslearning/layout.html" %}
+{% load static %}
+
+{% block title %}
+  Learn grammar
+{% endblock %}
+
+{% block body %}
+  <script src="{% static 'mayslearning/paginationA.js' %}"></script>
+  <script src="{% static 'mayslearning/audioPlayer.js' %}"></script>
+  <script src="{% static 'mayslearning/learnGrammar.js' %}"></script>
+
+  <div class="container">
+    <div class="learn-container grammar" id="mainContent"></div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center the-control-buttons">
+      <button type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2 previousBtn">Previous</button>
+      <button type="button" class="btn btn-outline-primary btn-lg px-4 focalLearning">Need more learning</button>
+      <button type="button" class="btn btn-outline-info btn-lg px-4 me-md-2 showHideOriginal">Show/Hide English</button>
+      <button type="button" class="btn btn-outline-warning btn-lg px-4 me-md-2 showHideTrans">Show/Hide Chinese</button>
+      <button type="button" class="btn btn-outline-danger btn-lg px-4 me-md-2 randomBtn">Random</button>
+      <button type="button" class="btn btn-outline-secondary btn-lg px-4 nextBtn">Next</button>
+    </div>
+    
+    <div id="pageNumbers" class="footer">
+      <span id="pageNumberContainer"></span>
+    </div>
+      
+  </div>
+{% endblock %}

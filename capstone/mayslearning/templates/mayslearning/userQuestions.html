@@ -1,0 +1,42 @@
+{% extends "mayslearning/layout.html" %}
+{% load static %}
+
+{% block title %}
+  Questions
+{% endblock %}
+
+{% block body %}
+<script src="{% static 'mayslearning/paginationB.js' %}"></script>
+<script src="{% static 'mayslearning/userQuestions.js' %}"></script>
+
+    <div class="container" id="theQuestionContainer_main">
+      <div class="new-post" id="newQuestionContainer">
+          <div class="new-post-body">
+            <h4 class="text-center">New Question</h4>
+            <textarea class="form-control post-textarea" id="postTextArea" name="postContent" rows="3" required></textarea>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-primary btn-sm post-btn ml-auto" id="newPostBtn">Submit</button>
+            </div>                  
+          </div>
+      </div>
+
+      <div id="questionsContainer"></div>
+
+      <div id="pageNumbers" class="footer">
+          <span id="pageNumberContainer"></span>
+      </div>
+    </div>
+
+    <div id="theCommentContainer_main" style="display: none;" class="container">
+        <button class="btn btn-secondary btn-sm close-comments-btn" id="closeCommentContainerBtn">Close</button>
+        <div id="commentsContainer">
+            <div id="questionDiv"></div>
+            <div id="commentsListDiv"></div>
+            <div id="newCommentContainer" class="new-post-input-editor">
+                <h4 class="text-center">New Reply</h4>
+                <textarea class="form-control post-textarea" type="text" id="newCommentInput" placeholder="Write a reply..." name="commentContent" rows="3" required></textarea>
+                <button class="btn btn-primary btn-sm post-btn" id="postNewCommentBtn">Submit</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

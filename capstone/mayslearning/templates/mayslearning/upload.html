@@ -1,0 +1,55 @@
+{% extends "mayslearning/layout.html" %}
+{% load static %}
+
+{% block title %}
+  Upload
+{% endblock %}
+
+{% block body %}
+<div class="container upload">
+  <div class="row">
+      <h2>Upload an IPA item</h2>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+      </form>
+  </div>
+</div>
+<hr>
+
+<div class="container audio-records">
+  <h2>Audio Records</h2>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Title</th>
+        <th>File</th>
+        <th>Note</th>
+        <th>ATag</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for record in audio_records %}
+        <tr>
+          <td>{{ record.title }}</td>
+          <td>{{ record.theIPA }}</td>
+          <td>{{ record.audioFile }}</td>
+          <td>{{ record.note }}</td>
+          <td>{{ record.ATag }}</td>
+          <td>
+            <a href="{% url 'edit_audio' record.id %}">Edit</a> |
+            <a href="{% url 'delete_audio' record.id %}">Delete</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3">No audio items found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

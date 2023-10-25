@@ -1,0 +1,52 @@
+{% extends "mayslearning/layout.html" %}
+{% load static %}
+
+{% block title %}
+  Learn words
+{% endblock %}
+
+{% block body %}
+  <script src="{% static 'mayslearning/paginationA.js' %}"></script>
+  <script src="{% static 'mayslearning/audioPlayer.js' %}"></script>
+  <script src="{% static 'mayslearning/learnWords.js' %}"></script>
+
+  <div class="container">
+    <div class="learn-container" id="mainContentDiv"></div>
+
+    <div class="container">
+      <div class="modal fade" id="theTestModule" tabindex="-1" aria-labelledby="searchModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div id="inputLable">请输入这个单词：<span id="rightOrWrongIndicator"></span></div>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <input class="form-control" type="text" aria-label="input user answer" id="userAnswerInput" name="userAnswerInput" autofocus>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="cancelButton">Cancel</button>
+              <button type="button" class="btn btn-secondary" id="refreshButton">Refresh</button>
+              <button type="button" class="btn btn-primary" id="submitButton">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+          
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+      <button type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2 previousBtn">Previous</button>
+      <button type="button" class="btn btn-outline-primary btn-lg px-4 focalLearning">Need more learning</button>
+      <button type="button" class="btn btn-outline-info btn-lg px-4 me-md-2 showHideOriginal">Show/Hide English</button>
+      <button type="button" class="btn btn-outline-warning btn-lg px-4 me-md-2 showHideTrans">Show/Hide Chinese</button>
+      <button type="button" class="btn btn-outline-danger btn-lg px-4 me-md-2 testBtn" data-bs-toggle="modal" data-bs-target="#theTestModule">Test</button>
+      <button type="button" class="btn btn-outline-danger btn-lg px-4 me-md-2 randomBtn">Random</button>
+      <button type="button" class="btn btn-outline-secondary btn-lg px-4 nextBtn">Next</button>
+    </div>
+    
+    <div id="pageNumbers" class="footer">
+      <span id="pageNumberContainer"></span>
+    </div>
+
+  </div>
+{% endblock %}

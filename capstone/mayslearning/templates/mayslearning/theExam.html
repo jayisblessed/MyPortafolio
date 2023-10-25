@@ -1,0 +1,58 @@
+{% extends "mayslearning/layout.html" %}
+{% load static %}
+
+{% block title %}
+  Exam
+{% endblock %}
+
+{% block body %}
+<script src="{% static 'mayslearning/theExam.js' %}"></script>
+
+<div class="container">
+
+    <div id="theResultContainer"></div>
+        
+    <div class="exam-header">
+      <h3 class="exam-title">{{ exam.title }}</h3>
+      <div><span id="time-limit" class="exam-time">Time limit: {{ duration_minutes }} Minutes </span><span id="endTimeDisplay" class="exam-time"></span></div>
+      <div id="currentTimeDisplay" class="exam-time"></div>
+      <div><button type="button" class="btn btn-primary btn-sm" id="startExamBtn">Start</button></div>
+    </div>
+    
+    <h5>Fill in the banks with an appropriate answer.</h5>
+    {% for question in exam.questions.all %}
+      <h5 class="exam-questions">{{ forloop.counter }}. {{ question.question }}</h5>
+      {% if question.audio %}
+          <audio id="audioPlayer{{ forloop.counter }}" preload="none">
+            <source src="/media/{{question.audio}}" type="audio/mpeg">
+            <source src="/media/{{question.audio}}" type="audio/mp4">
+          </audio>
+          <button id="playButton{{ forloop.counter }}" class="play-audio-btn">&#9658;</button>
+
+        <script>
+          const audioPlayer{{ forloop.counter }} = document.getElementById('audioPlayer{{ forloop.counter }}');
+          const playButton{{ forloop.counter }} = document.getElementById('playButton{{ forloop.counter }}');
+       
+           playButton{{ forloop.counter }}.addEventListener('click', function() {
+             if (audioPlayer{{ forloop.counter }}.paused) {
+               audioPlayer{{ forloop.counter }}.play();
+               playButton{{ forloop.counter }}.textContent = '||';
+             } else {
+               audioPlayer{{ forloop.counter }}.pause();
+               playButton{{ forloop.counter }}.textContent = '\u25BA'; // unicode for play icon '►'
+             }
+           });
+       
+           audioPlayer{{ forloop.counter }}.addEventListener('ended', function() {
+             playButton{{ forloop.counter }}.textContent = '\u25BA';
+           });
+        </script>
+      {% endif %}
+      
+      <input type="text" class="form-control quizInput" data-question-id="{{ question.id }}" name="quizInput">
+    {% endfor %}
+      <input type="hidden" name="examId" value="{{ exam.id }}" id="examID">
+
+      <button type="button" class="btn btn-primary" id="examSubmitBtn">Submit</button>
+</div>
+{% endblock %}

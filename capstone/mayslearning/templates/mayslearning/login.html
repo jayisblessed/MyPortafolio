@@ -1,0 +1,30 @@
+{% extends "mayslearning/layout.html" %}
+
+{% block title %}
+  Log in
+{% endblock %}
+
+{% block body %}
+    <div class="container login">
+
+        <h2 class="title login">Login</h2>
+
+        {% if message %}
+            <div>{{ message }}</div>
+        {% endif %}
+
+        <form action="#" method="post">
+            {% csrf_token %}
+            <div class="form-group login">
+                <input autofocus class="form-control login" type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-group login">
+                <input class="form-control login" type="password" name="password" placeholder="Password">
+            </div>
+            <input class="btn btn-primary login" type="submit" value="Login">
+        </form>
+
+        Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+
+    </div>
+{% endblock %}

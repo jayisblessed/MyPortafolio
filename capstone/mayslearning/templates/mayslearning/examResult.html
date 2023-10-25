@@ -1,0 +1,35 @@
+{% extends "mayslearning/layout.html" %}
+
+{% block title %}
+  Exam result
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <h1>Exam Title: {{ exam_title }}</h1>
+  <p>Correctness Percentage: {{ percentage }}%</p>
+  <p>Start Time: {{ start_time }}</p>
+  <p>End Time: {{ end_time }}</p>
+
+  <table id="examResultTable">
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>Your answer</th>
+        <th>Correct?</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for record in question_answer_records %}
+        <tr>
+          <td>{{ record.question.question }}</td>
+          <td>{{ record.question.answer }}</td>
+          <td>{{ record.user_answer }}</td>
+          <td>{{ record.is_correct }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

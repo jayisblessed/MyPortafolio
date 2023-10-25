@@ -1,0 +1,25 @@
+{% extends "mayslearning/layout.html" %}
+{% load static %}
+
+{% block title %}
+  Wise words
+{% endblock %}
+
+{% block body %}
+  <script src="{% static 'mayslearning/paginationA.js' %}"></script>
+  <script src="{% static 'mayslearning/wiseWords.js' %}"></script>
+
+  <div class="learn-container wise-words" id="mainContentDiv"></div>
+
+  <div class="container">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+      <button type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2 previousBtn">Previous</button>
+      <button type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2 randomBtn">Random</button>
+      <button type="button" class="btn btn-outline-secondary btn-lg px-4 nextBtn">Next</button>
+    </div>
+  </div>
+
+  <div id="pageNumbers" class="page-number-div footer">
+    <span id="pageNumberContainer"></span>
+  </div>
+{% endblock %}

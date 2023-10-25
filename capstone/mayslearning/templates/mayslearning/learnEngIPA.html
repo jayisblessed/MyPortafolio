@@ -1,0 +1,28 @@
+{% extends "mayslearning/layout.html" %}
+{% load static %}
+
+{% block title %}
+  English IPA
+{% endblock %}
+
+{% block body %}
+  <script src="{% static 'mayslearning/learnEngIPA.js' %}"></script>
+
+  <div class="container">
+      <button class="btn btn-sm btn-outline-primary" id="theIPA">国际音标IPA</button>
+      <button class="btn btn-sm btn-outline-primary" id="IPAExamples">音标例词</button>
+      <button class="btn btn-sm btn-outline-primary" id="theAlphabet">字母表</button>
+      <button class="btn btn-sm btn-outline-primary" id="theQuiz">测验</button>
+      <hr>
+  </div>
+
+  <div class="container">
+      
+    <div id="theIPAApp"></div>
+
+    <audio id="audioPlayer" preload="none"></audio>
+
+    <div id="virtual-keyboard-container"></div>
+    
+  </div>
+{% endblock %}

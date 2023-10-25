@@ -1,0 +1,50 @@
+{% extends "mayslearning/layout.html" %}
+{% load static %}
+
+{% block title %}
+  Profile
+{% endblock %}
+
+{% block body %}
+    <script id="study-records" type="application/json">{{ study_records|safe }}</script>
+
+    <div class="container">
+
+        <div class="modal fade" id="addMoney" tabindex="-1" aria-labelledby="addMoneyModalScrollableTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div id="inputLable">请输入充值金额（美元）Amount in USD：</div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="{% url 'top_up_balance' %}">
+                            {% csrf_token %}
+                            <input type="number" class="form-control" id="topUpBalance" step="0.01" name="amount" min="0" required>
+                        
+                    </div>
+                    <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="cancelButton">Cancel</button>
+                            <button type="submit" class="btn btn-success topUpBalance">Add money</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Profile</h2>
+        <hr>
+        <p>Current Balance: ${{ request.user.userprofile.balance }}</p>
+        <p>Subscription: {% if request.user.userprofile.subscribed %} Subscribed  {% else %} Unsubscribed {% endif %}</p>
+        <p>Valid until: {{ request.user.userprofile.renewal_date }}</p>
+        <p>User since: {{ request.user.userprofile.created_date }}</p>
+        <button type="button" class="btn btn-success addMoney" data-bs-toggle="modal" data-bs-target="#addMoney">Add money</button>
+
+        <form method="post" action="{% url 'toggleSubscription' %}" style="display:inline;">
+            {% csrf_token %}
+            {% if request.user.userprofile.subscribed %}<button type="submit" class="btn btn-primary">Unsubscribe</button>{% else %}<button type="submit" class="btn btn-secondary">Subscribe</button>{% endif %}
+        </form>
+
+        <div id="study-records"></div>
+    </div>
+{% endblock %}

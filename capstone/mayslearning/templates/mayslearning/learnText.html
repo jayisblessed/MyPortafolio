@@ -1,0 +1,33 @@
+{% extends "mayslearning/layout.html" %}
+{% load static %}
+
+{% block title %}
+  Learn text
+{% endblock %}
+
+{% block body %}
+  <script src="{% static 'mayslearning/paginationA.js' %}"></script>
+  <script src="{% static 'mayslearning/learnText.js' %}"></script>
+
+  <div class="container" id="theMainContentPage">
+
+    <div class="learn-text-container" id="mainContent"></div>
+    
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center the-control-buttons">
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2 previousBtn">Previous</button>
+        <button type="button" class="btn btn-outline-primary btn-lg px-4 focalLearning">Need more learning</button>
+        <button type="button" class="btn btn-outline-warning btn-lg px-4 me-md-2 test" id="testBtn">Test</button>
+        <button type="button" class="btn btn-outline-danger btn-lg px-4 me-md-2 randomBtn">Random</button>
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4 nextBtn">Next</button>
+    </div>
+    
+    <div id="pageNumbers" class="footer">
+        <span id="pageNumberContainer"></span>
+    </div>
+      
+  </div>
+
+  <div class="container" id="theTestContentPage">
+      <div class="test-container" id="testContent"></div>
+  </div>
+{% endblock %}

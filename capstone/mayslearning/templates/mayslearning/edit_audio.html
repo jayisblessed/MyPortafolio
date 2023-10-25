@@ -1,0 +1,16 @@
+{% extends "mayslearning/layout.html" %}
+
+{% block title %}
+  Edit audio
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <h2>Edit Audio Item</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+  </form>
+</div>
+{% endblock %}

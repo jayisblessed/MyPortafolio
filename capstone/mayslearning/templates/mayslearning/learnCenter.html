@@ -1,0 +1,59 @@
+{% extends "mayslearning/layout.html" %}
+{% load static %}
+
+{% block title %}
+  Learn center
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+  <div class="button-container">
+    <a href="{% url 'learn_IPA' %}" class="button learn-EngIPA">Learn IPA</a>
+    <a href="{% url 'pastMistakes' %}" class="button past-mistakes">Mistakes</a>
+    <a href="{% url 'learnText' %}" class="button learn-text">Learn text</a>
+    <a href="{% url 'learnGrammar' %}" class="button learn-grammar">Learn grammar</a>
+    <a href="{% url 'learnWords' %}" class="button learn-words">Learn words</a>
+    <a href="{% url 'learnSentences' %}" class="button learn-sentences">Learn sentences</a>
+  </div>
+
+  <section id="vocabulary-lib">
+    <h3>Vocabulary Library</h3>
+    <span>{{ word_learned_count }} word(s) learned. {{ word_count }} words total.</span>
+    <div class="chart">
+      <div class="bar bar-words" style="width: {{ word_percentageRound }}%;"><span class="bar-label">{{ word_percentageRound }}%</span></div>
+    </div>
+  </section>
+
+  <section id="sentence-lib">
+    <h3>Sentence Library</h3>
+    <span>{{ sentence_learned_count }} sentence(s) learned. {{ sentence_count }} sentences total.</span>
+    <div class="chart">
+      <div class="bar bar-sentences" style="width: {{ sentence_percentageRound }}%;"><span class="bar-label">{{ sentence_percentageRound }}%</span></div>
+    </div>
+  </section>
+
+  <section id="grammar-lib">
+    <h3>Grammar Library</h3>
+    <span>{{ grammar_learned_count }} item(s) learned. {{ grammar_count }} items total.</span>
+    <div class="chart">
+      <div class="bar bar-grammar" style="width: {{ grammar_percentageRound }}%;"><span class="bar-label">{{ grammar_percentageRound }}%</span></div>
+    </div>
+  </section>
+
+  <section id="test-corectness">
+    <h3>Test Corectness</h3>
+    <div>{{ question_correct_count }} question(s) correct. {{ question_answered_count }} questions total.</div>
+    <div class="chart">
+      <div class="bar bar-correctness" style="width: {{ question_correctness }}%;"><span class="bar-label">{{ question_correctness }}%</span></div>
+    </div>
+  </section>
+
+  <section id="study-duration">
+    <h3>Study Duration</h3>
+    <div>{{ formatted_duration }}</div>
+  </section>
+
+</div>
+{% endblock %}

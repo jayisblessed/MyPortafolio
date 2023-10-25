@@ -1,0 +1,27 @@
+{% extends "mayslearning/layout.html" %}
+
+{% block title %}
+  Delete audio
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <h2>Delete Audio item</h2>
+    <p>Are you sure you want to delete the following audio item?</p>
+
+    <ul>
+      <li>Title: {{ record.title }}</li>
+      <li>IPA: {{ record.theIPA }}</li>
+      <li>File: {{ record.audioFile }}</li>
+      <li>Note: {{ record.note }}</li>
+      <li>A Tag: {{ record.ATag }}</li>
+    </ul>
+
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit">Yes, Delete</button>
+      <a href="{% url 'upload_audio' %}">Cancel</a>
+    </form>
+    
+  </div>
+{% endblock %}

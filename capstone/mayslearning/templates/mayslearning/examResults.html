@@ -1,0 +1,29 @@
+{% extends "mayslearning/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Exam results
+{% endblock %}
+
+{% block body %}
+    <script src="{% static 'mayslearning/paginationA.js' %}"></script>
+    <script src="{% static 'mayslearning/examResults.js' %}"></script>
+
+    <div class="container">
+
+        <div class="button-container">
+            <a href="{% url 'theExam' %}" class="btn btn-primary">Take a random exam</a>
+        </div>
+        <hr>
+
+        <h4>Past exams:</h4>
+
+        <div class="mainContent exam-results" id="mainContent"></div>
+        <div class="mainContentOne exam-results-one" id="mainContentOneExam"></div>
+
+        <div id="pageNumbers" class="footer">
+            <span id="pageNumberContainer"></span>
+        </div>    
+
+    </div>
+{% endblock %}
