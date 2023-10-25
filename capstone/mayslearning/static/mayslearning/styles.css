@@ -1,0 +1,794 @@
+/* Javascript message banner */
+#javascriptMessageBanner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(220, 20, 60, 0.5);
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+/* Audio player button style */
+.play-audio-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e3e3e3;
+  border: 1px solid gray;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+
+/* Pagination style */
+#pageNumberContainer {
+  display: flex;
+  justify-content: center; /* horizontally center the elements */
+  margin-top: 10px;
+}
+  
+#pageNumberContainer a {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #e9ecef;
+  color: #808080;
+  text-decoration: none;
+  border-radius: 3px;
+  margin-right: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* create smooth animations for a change of CSS properties */
+}
+  
+#pageNumberContainer a.active {
+  background-color: #007bff;
+  color: #fff;
+}
+  
+#pageNumberContainer a:hover {
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+}
+  
+#pageNumberInput {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  margin-right: 5px;
+  margin-left: 9px;
+  border: 1px solid silver;
+  color: gray;
+  font-size: 14px;
+  transition: box-shadow 0.4s ease;
+}
+
+#pageNumberInput:focus,
+#pageNumberInput:hover {
+  box-shadow: 0 0 0 2px #808080;
+  color: black;
+}
+
+
+/* Learning pages */
+.learn-container {
+  margin: 0;
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* vertically center the elements */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  height: 65vh;
+  overflow: auto;
+  color: #333333;
+  padding: 50px;
+}
+/* The control buttons of the learning pages */
+.the-control-buttons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+/* Learn grammar */
+.title.grammar {
+  font-size: 24px;
+  color: #4169E1;
+  font-weight: bold;
+}
+  
+.text.grammar {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+
+/* Learn sentences */
+.learn-container.sentence {
+  display: flex;
+  padding: 20px;
+}
+
+.text-content.sentence {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.image-content.sentence img {
+  width: 30vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sentence-sentence, 
+.translation-sentence {
+  font-size: 24px;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.translation-sentence {
+  color: #4169E1;
+  font-size: 24px;
+}
+
+
+/* Past mistakes */
+.mistake-count::before {
+  content: "Mistake count: ";
+  color: #800000;
+}
+
+.question-mistake::before {
+  content: "Question: ";
+  font-weight: bold;
+  color: blue;
+}
+
+.answer-mistake::before {
+  content: "Answer: ";
+  font-weight: bold;
+  color: blue;
+}
+
+.user-answer.mistake::before {
+  content: "Your answer: ";
+  color: #FF0000;
+}
+
+.answer-mistake {
+  content: "Standard answer: ";
+  font-weight: bold;
+}
+
+.user-answer.mistake {
+  padding: 2px;
+}
+  
+.card.mistake {
+  width: 100%;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  flex-direction: column;
+  align-items: left;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* Learn text */
+.close {
+  float: right;
+}
+
+.learn-text-container {
+  background: #f2f2f2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  height: 65vh;
+  overflow: auto;
+}
+
+.text-content-div {
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.text.title,
+.text-title,
+.learn-text-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.learn-text-content {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.text.heading1 {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+  
+.text.standard-answer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.text.heading2 {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.text.user-answer.wrong {
+  color: red;
+}
+
+.user-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.text-title {
+  margin-bottom: 10px;
+}
+
+.btn-submit-cancel {
+  display: flex;
+  justify-content: flex-end;
+}
+  
+.btn-submit-cancel button {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+/* align buttons to the right */
+.btn-submit-cancel {
+  width: 100%;
+}
+
+/* Learn words */
+.text-content.word {
+  height: 100%;
+  overflow: auto;
+  flex: 2;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-content.word {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* align to the right if image is present */
+  flex-shrink: 0; /* prevent image content from shrinking */
+}
+  
+.image-content.word img {
+  width: 30vw;
+  overflow: hidden;
+}
+/* styling for image container when no image is present */
+.image-content.word:empty {
+  display: none; /* hide the image container when it is empty */
+} 
+
+
+/* Wise words */
+.wise-words.text,
+.wise-words.translation {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  text-align: center;
+}
+  
+.wise-words.author {
+  margin-top: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font: 20px;
+  text-align: center;
+}
+
+
+/* The exam */
+.exam-header {
+  background: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 2px 2px 10px;
+  margin-bottom: 40px;
+}
+    
+.exam-title {
+  margin-bottom: 10px;
+}
+
+.exam-questions {
+  margin-top: 20px;
+}
+
+.form-control.quizInput {
+  padding: 7px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+#examSubmitBtn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.exam-time {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  padding: 5px 10px;
+  margin: 5px;
+  text-align: center;
+}
+
+#theResultContainer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#examResultTable tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+#examResultTable tr:nth-child(even) {
+  background-color: #e1e1e1;
+}
+
+#examResultTable table {
+  border-collapse: collapse;
+}
+
+#examResultTable th {
+  position: relative;
+  padding: 8px;
+}
+
+#examResultTable th::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+#examResultTable td, th {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+
+/* Exam results */
+.percentage::before {
+  content: "Percentage: ";
+  color: #FF0000;
+}
+
+.exam-title::before {
+  content: "Exam title: ";
+  font-weight: bold;
+  color: blue;
+}
+
+.time-stamp::before {
+  content: "Time: ";
+  font-weight: bold;
+  color: blue;
+}
+
+.user-name::before {
+  content: "Examinee: ";
+  color: #800000;
+}
+  
+.card.exam-result {
+  width: 100%;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  flex-direction: column;
+  align-items: left;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.topUpBalance {
+  margin-top: 10px;
+}
+
+
+/* Learn center */
+section {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+section > h3 {
+  text-shadow: 2px 2px 10px;
+}
+
+.chart {
+  width: 100%;
+  height: 30px;
+  background-color: #f0f0f0;
+  border-radius: 1px;
+  overflow: hidden;
+  box-shadow: 1px 1px 5px;
+}
+
+.bar {
+  height: 100%;
+  background-color: #7ac943;
+  transition: width 0.5s ease;
+  box-shadow: 5px 5px 5px;
+}
+
+.bar-words {
+  background-color: #0a75ad;
+}
+
+.bar-sentences {
+  background-color: #a0db8e;
+}
+
+.bar-grammar {
+  background-color: #660066;
+}
+
+.bar-correctness {
+  background-color: #f6546a;
+}
+
+.bar {
+  position: relative;
+}
+
+.bar-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(10%, -50%);
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* wrap to a new line when necessary */
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+.button-container .button {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  margin: 5px;
+  width: 205px; 
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: #008080;
+  padding: 7px 32px;
+  transition-duration: 0.5s;
+  justify-content: space-between;
+}
+
+.button-container .button:hover {
+  background-color: #FFA500;
+}
+
+
+/* User questions */
+/* style for the new comment textarea */
+.post-textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+#newPostBtn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.delete-question,
+.edit-question,
+.cancelButton,
+.editCommentButton,
+.deleteCommentButton,
+.save-post-btn,
+.save-comment-btn
+{
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+#closeCommentContainerBtn, 
+#postNewCommentBtn
+{
+  text-align: right;
+  float: right;
+  margin-top: 5px;
+}
+
+#theCommentContainer_main {
+  border: 1px solid silver;
+  padding: 10px;
+  padding-bottom: 50px;
+}
+/* for the comments list */
+#commentsList {
+  margin-bottom: 10px;
+}
+
+/* for each comment */
+.comment {
+  background-color: #f6f6f6;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.comment-question,
+.user-question,
+.comment-content {
+  font-size: 22px;
+}
+
+#commentsListDiv {
+  margin-top: 30px;
+}
+
+.author-timestamp,
+.comment-author {
+  margin-top: 20px;
+}
+
+/* for the new comment input field */
+#newCommentInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+#questionsContainer .card {
+  width: 100%;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  flex-direction: column;
+  align-items: left;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* Learn English IPA */
+.table td {
+  width: 100px;
+  text-align: center;
+  vertical-align: middle;
+}
+  
+.table th {
+  width: 100px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#theIPAApp table {
+  caption-side: top;
+  border-collapse: collapse;
+}
+
+#theIPAApp td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  transition: background-color 0.3s ease;
+}
+/* target the <td> elements that appear as the n-th child within their respective parent element */
+#theIPAApp table:nth-child(1) td {
+  background-color: #f9dbdb;
+}
+
+#theIPAApp table:nth-child(2) td {
+  background-color: #cbf9ea;
+}
+
+#theIPAApp table:nth-child(3) td {
+  background-color: #b4ecff;
+}
+
+#theIPAApp table:nth-child(4) td {
+  background-color: #FFFFFF;
+}
+
+#theIPAApp table:nth-child(5) td {
+  background-color: #DADBDD;
+}
+
+#theIPAApp table td:hover {
+  background-color: gold;
+}
+
+
+/* 'Register' & 'Login' */
+.container.register,
+.container.login {
+  margin: 0 auto;
+  padding: 20px;
+}
+  
+.title.register,
+.title.login {
+  margin-bottom: 20px;
+}
+
+.message {
+  margin-bottom: 10px;
+  color: #ff0000;
+}
+
+.form-group.register,
+.form-group.login {
+  margin-bottom: 20px;
+}
+
+.form-control.register,
+.form-control.login {
+  width: 100%;
+  padding: 10px;
+}
+
+.btn.register,
+.btn.login {
+  margin-bottom: 20px;
+}
+.vfd-display {
+  font-size: 24px;
+  color: #0f0;
+  background-color: #000;
+  padding: 10px;
+  border: 1px solid #0f0;
+  box-shadow: 0 0 10px #0f0;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.IPA-control-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.IPA-control-btn {
+  margin: 5px; /* add some space between the buttons */
+  white-space: nowrap; /* prevent buttons from wrapping to new lines */
+}
+
+#answerInputField {
+  border: 1px solid #999;
+  background-color: #ddd;
+  font-size: 24px;
+  color: #333;
+  text-align: left;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
+
+.keyboard {
+  display: grid;
+  grid-gap: 5px;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.keyboard .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.keyboard .key {
+  border: 1px solid black;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s;
+  background-color: rgba(0, 128, 128, 0.8);
+}
+
+.keyboard .key:hover {
+  background-color: gold;
+  color: black;
+}
+
+.EngIPATable {
+  display: grid;
+  grid-gap: 2px;
+}
+
+.EngIPATable tr {
+  text-align: center;
+}
+
+
+/* Other styles */
+.pointer-underline {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* When there is no data, show a nice panel saying 'No data.' */
+.no-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  height: 65vh;
+  overflow: hidden;
+  padding: 20px;
+}
+
+
+/* Search */
+.matching-word {
+  cursor: pointer;
+  text-decoration: underline;
+  color: blue;
+}
