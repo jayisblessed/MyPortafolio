@@ -1,0 +1,27 @@
+# Stage 1: Build the application
+FROM python:3.10 AS builder
+
+WORKDIR /app
+
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . /app/
+
+# Stage 2: Final runtime image
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Copy built application from the builder stage
+COPY --from=builder /app /app
+
+ENV PYTHONUNBUFFERED=1
+
+# Non-root user for running the application
+RUN useradd -ms /bin/bash django
+USER django
+
+EXPOSE 8000
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
